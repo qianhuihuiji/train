@@ -1,8 +1,7 @@
-package com.nofirst.member.aspect;
+package com.nofirst.train.common.aspect;
 
 import cn.hutool.core.util.RandomUtil;
 import com.alibaba.fastjson.JSONObject;
-import com.alibaba.fastjson.serializer.PropertyPreFilter;
 import com.alibaba.fastjson.support.spring.PropertyPreFilters;
 import jakarta.servlet.ServletRequest;
 import jakarta.servlet.ServletResponse;
@@ -26,7 +25,7 @@ import org.springframework.web.multipart.MultipartFile;
 @Component
 public class LogAspect {
     public LogAspect() {
-        System.out.println("LogAspect");
+        System.out.println("Common LogAspect");
     }
 
     private final static Logger LOG = LoggerFactory.getLogger(LogAspect.class);

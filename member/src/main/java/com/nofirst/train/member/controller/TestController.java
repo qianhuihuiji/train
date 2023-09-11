@@ -1,4 +1,4 @@
-package com.nofirst.member.controller;
+package com.nofirst.train.member.controller;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
