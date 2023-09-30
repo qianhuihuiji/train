@@ -1,6 +1,8 @@
 package com.nofirst.train.member.service;
 
 import cn.hutool.core.collection.CollectionUtil;
+import com.nofirst.train.common.exception.BusinessException;
+import com.nofirst.train.common.exception.BusinessExceptionEnum;
 import com.nofirst.train.member.domain.Member;
 import com.nofirst.train.member.domain.MemberExample;
 import com.nofirst.train.member.mapper.MemberMapper;
@@ -26,7 +28,7 @@ public class MemberService {
         memberExample.createCriteria().andMobileEqualTo(mobile);
         List<Member> members = memberMapper.selectByExample(memberExample);
         if (CollectionUtil.isNotEmpty(members)) {
-            throw new RuntimeException("手机号已存在");
+            throw new BusinessException(BusinessExceptionEnum.MEMBER_MOBILE_EXIST);
         }
 
         Member member = new Member();
