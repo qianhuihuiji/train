@@ -1,5 +1,7 @@
 package com.nofirst.train.member.controller;
 
+import com.nofirst.train.common.resp.CommonResp;
+import com.nofirst.train.member.req.MemberRegisterReq;
 import com.nofirst.train.member.service.MemberService;
 import jakarta.annotation.Resource;
 import org.springframework.web.bind.annotation.*;
@@ -12,12 +14,16 @@ public class MemberController {
     private MemberService memberService;
 
     @GetMapping("count")
-    public Integer count(){
-        return memberService.count();
+    public CommonResp<Integer> count(){
+        int count = memberService.count();
+
+        return new CommonResp<>(count);
     }
 
     @PostMapping("register")
-    public long register(String mobile){
-        return memberService.registerUser(mobile);
+    public CommonResp<Long> register(MemberRegisterReq req){
+        long userId = memberService.registerUser(req);
+
+        return new CommonResp<>(userId);
     }
 }
